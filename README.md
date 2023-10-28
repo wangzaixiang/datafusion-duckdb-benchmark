@@ -3,8 +3,8 @@
 Benchmarking DataFusion and DuckDB over [ClickBench](https://benchmark.clickhouse.com), [TPC-H](https://www.tpc.org/tpch/default5.asp), and [H2O.ai](https://h2oai.github.io/db-benchmark/)
 
 ## Versions
-* DataFusion 31.0.0
-* DuckDB 0.8.1
+* DataFusion 32.0.0
+* DuckDB 0.9.1
 
 ## Results
 All results are checked in to [results]
@@ -24,7 +24,7 @@ pip install pyarrow pandas matplotlib seaborn prettytable
 pip install duckdb==0.9.0 psutil
 
 # install DataFusion
-pip install --upgrade datafusion==31.0.0
+pip install datafusion==32.0.0
 
 ```
 
