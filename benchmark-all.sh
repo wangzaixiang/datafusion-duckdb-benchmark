@@ -16,3 +16,6 @@ echo "****** Clickbench ******"
 (cd clickbench && bash benchmark.sh multi)
 (cd clickbench && python3 plot.py comparison)
 (cd clickbench && python3 plot.py scalability)
+
+# Compute summary information
+(cd results && python3 summary.py)
