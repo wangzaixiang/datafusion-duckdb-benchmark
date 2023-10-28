@@ -6,11 +6,11 @@
 
 echo "****** H2O ******"
 (cd h2o && bash benchmark.sh)
-(cd h2o && python3 plot.py)
+(cd h2o && python3 plot.py comparison)
 
 echo "****** TPCH ******"
 (cd tpch && bash benchmark.sh)
-(cd tpch && python3 plot.py)
+(cd tpch && python3 plot.py comparison)
 
 echo "****** Clickbench ******"
 (cd clickbench && bash benchmark.sh multi)
