@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Runs all three benchmarks
+# Measures single core performance of all three benchmarks
 
 
 
@@ -13,9 +13,8 @@ echo "****** TPCH ******"
 (cd tpch && python3 plot.py comparison)
 
 echo "****** Clickbench ******"
-(cd clickbench && bash benchmark.sh multi)
+(cd clickbench && bash benchmark.sh comparison)
 (cd clickbench && python3 plot.py comparison)
-(cd clickbench && python3 plot.py scalability)
 
 # Compute summary information
 (cd results && python3 summary.py)
