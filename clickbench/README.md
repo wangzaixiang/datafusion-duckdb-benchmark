@@ -1,6 +1,29 @@
-Scripts for running ClickBench benchmarks. See [Main Readme](../README.md) for usage
+Scripts for running ClickBench benchmarks. See [Main Readme](../README.md) for details
 
-Queries are run using the equivalent of:
+
+## ClickBench
+
+```bash
+cd clickbench/
+
+# Download the dataset
+bash setup.sh
+
+# Run the benchmark,  results are written to
+#  ../results/latest/clickbench_datafusion.csv
+#  ../results/latest/clickbench_duckdb.csv
+bash benchmark.sh single
+
+# Plot the results, written to
+# ../results/latest/comparison.clickbench.pdf
+python3 plot.py comparison
+
+# Run and plot scalability benchmarks
+bash benchmark.sh multi multi
+python3 plot.py scalability
+```
+
+## Run a single query
 
 ### DataFusion
 
@@ -25,7 +48,9 @@ result = ctx.sql(create_query).collect()
 print("Running query...")
 
 # Run query
-query = """SELECT DATE_TRUNC('minute', to_timestamp_seconds("EventTime")) AS M, COUNT(*) AS PageViews FROM hits WHERE "CounterID" = 62 AND "EventDate"::INT::DATE >= '2013-07-14' AND "EventDate"::INT::DATE <= '2013-07-15' AND "IsRefresh" = 0 AND "DontCountHits" = 0 GROUP BY DATE_TRUNC('minute', to_timestamp_seconds("EventTime")) ORDER BY DATE_TRUNC('minute', M) LIMIT 10 OFFSET 1000;"""
+query = """
+SELECT DATE_TRUNC('minute', to_timestamp_seconds("EventTime")) AS M, COUNT(*) AS PageViews FROM hits WHERE "CounterID" = 62 AND "EventDate"::INT::DATE >= '2013-07-14' AND "EventDate"::INT::DATE <= '2013-07-15' AND "IsRefresh" = 0 AND "DontCountHits" = 0 GROUP BY DATE_TRUNC('minute', to_timestamp_seconds("EventTime")) ORDER BY DATE_TRUNC('minute', M) LIMIT 10 OFFSET 1000;
+"""
 
 start = timeit.default_timer()
 result = ctx.sql(query).collect()
