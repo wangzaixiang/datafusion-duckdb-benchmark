@@ -15,9 +15,18 @@ rm -f *.duckdb*
 
 cat ${CREATE} | ../common/create-view-duckdb.py
 
+function drop_cache(){
+  if [ `uname` = "Darwin" ]; then
+    sudo purge
+  else
+     echo 3 | sudo tee /proc/sys/vm/drop_caches >/dev/null
+  fi
+}
+
 cat ${QUERIES} | while read query; do
     sync
-    echo 3 | sudo tee /proc/sys/vm/drop_caches >/dev/null
+    drop_cache
+    # echo 3 | sudo tee /proc/sys/vm/drop_caches >/dev/null
     sync
 
     echo "qnum: $QUERY_NUM"

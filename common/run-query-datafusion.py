@@ -4,7 +4,7 @@ import os
 import sys
 import timeit
 
-from datafusion import SessionContext, SessionConfig, RuntimeConfig
+from datafusion import SessionContext, SessionConfig #, RuntimeConfig
 
 
 if __name__ == "__main__":
@@ -25,7 +25,7 @@ if __name__ == "__main__":
     for c in cores:
         # create a DataFusion context
         config = SessionConfig().with_target_partitions(c)
-        ctx = SessionContext(config, RuntimeConfig())
+        ctx = SessionContext(config) # , RuntimeConfig())
 
         with open(create_query_file, "r") as f:
             create_queries = f.readlines()
