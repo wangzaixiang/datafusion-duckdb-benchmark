@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-sweep_cores="${1:-single}" # single/multi
+sweep_cores="${1:-single}" # single/multi/available
 
 mkdir -p ../results/latest
 rm -rf ../results/latest/tpch_datafusion.csv

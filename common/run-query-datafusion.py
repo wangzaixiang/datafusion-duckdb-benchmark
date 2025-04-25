@@ -19,6 +19,8 @@ if __name__ == "__main__":
 
     if sweep_cores == "multi":
         cores = [1, 2, 4, 8, 16, 32, 64, 128, 192]
+    elif sweep_cores == "available":
+        cores = [os.cpu_count()]
     else:
         cores = [1]
 
