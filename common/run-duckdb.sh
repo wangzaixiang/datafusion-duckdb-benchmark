@@ -3,7 +3,7 @@
 # create file
 CREATE=$1
 QUERIES=$2
-SWEEP_CORES=$3
+SWEEP_CORES=$3  #  multi, single, available
 RESULT_FILE=$4
 TRIES=5
 QUERY_NUM=1
