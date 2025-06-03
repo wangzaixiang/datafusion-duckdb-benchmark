@@ -1,25 +1,25 @@
 -- Single parquet file
 
 CREATE VIEW customer AS
-SELECT * FROM read_parquet('./data/customer.parquet');
+SELECT * FROM read_parquet('../arrow-datafusion/benchmarks/data/tpch_dataset/customer/part-0.parquet');
 
 CREATE VIEW orders AS
-SELECT * FROM read_parquet('./data/orders.parquet');
+SELECT * FROM read_parquet('../arrow-datafusion/benchmarks/data/tpch_dataset/orders/part-0.parquet');
 
 CREATE VIEW lineitem AS
-SELECT * FROM read_parquet('./data/lineitem.parquet');
+SELECT * FROM read_parquet('../arrow-datafusion/benchmarks/data/tpch_dataset/lineitem/part-0.parquet');
 
 CREATE VIEW part AS
-SELECT * FROM read_parquet('./data/part.parquet');
+SELECT * FROM read_parquet('../arrow-datafusion/benchmarks/data/tpch_dataset/part/part-0.parquet');
 
 CREATE VIEW partsupp AS
-SELECT * FROM read_parquet('./data/partsupp.parquet');
+SELECT * FROM read_parquet('../arrow-datafusion/benchmarks/data/tpch_dataset/partsupp/part-0.parquet');
 
 CREATE VIEW region AS
-SELECT * FROM read_parquet('./data/region.parquet');
+SELECT * FROM read_parquet('../arrow-datafusion/benchmarks/data/tpch_dataset/region/part-0.parquet');
 
 CREATE VIEW supplier AS
-SELECT * FROM read_parquet('./data/supplier.parquet');
+SELECT * FROM read_parquet('../arrow-datafusion/benchmarks/data/tpch_dataset/supplier/part-0.parquet');
 
 CREATE VIEW nation AS
-SELECT * FROM read_parquet('./data/nation.parquet');
+SELECT * FROM read_parquet('../arrow-datafusion/benchmarks/data/tpch_dataset/nation/part-0.parquet');
