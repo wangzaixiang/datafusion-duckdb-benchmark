@@ -109,7 +109,7 @@ if __name__ == "__main__":
         custom_ordering = {'duckdb':0, 'datafusion':1}
         df.sort_values(by=['query', 'engine'], key=lambda x: x.map(custom_ordering), inplace=True)
 
-        g = sns.barplot(x="query", y="duration", errorbar="sd", errwidth=0.1, capsize=0.2, hue="engine", data=df)
+        g = sns.barplot(x="query", y="duration", errorbar="sd", err_kws={ 'linewidth': 0.1 }, capsize=0.2, hue="engine", data=df)
         g.set(xlabel="Query", ylabel="Duration (s)")
         filename = f"../results/latest/{plot_type}.clickbench.pdf"
         print("Writing to {}".format(filename))
